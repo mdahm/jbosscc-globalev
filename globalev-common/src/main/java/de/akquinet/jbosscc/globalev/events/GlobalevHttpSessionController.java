@@ -49,7 +49,7 @@ public class GlobalevHttpSessionController {
     }
   }
 
-  private List<GlobalEvent> getGlobalEvents(final HttpSession session) {
+  private synchronized List<GlobalEvent> getGlobalEvents(final HttpSession session) {
     @SuppressWarnings("unchecked")
     List<GlobalEvent> globalEvents = (List<GlobalEvent>) session.getAttribute(EVENT_ATTRIBUTE_NAME);
 
