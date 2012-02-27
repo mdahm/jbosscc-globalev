@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="globalev-war">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <dependent-module archiveName="globalev-datamodel-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/globalev-datamodel/globalev-datamodel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="globalev-common-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/globalev-common/globalev-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="globalev-dao-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/globalev-dao/globalev-dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="globalev-webcontroller-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/globalev-webcontroller/globalev-webcontroller">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="jbosscc-globalev"/>
+        <property name="java-output-path" value="/globalev-war/target/classes"/>
+    </wb-module>
+</project-modules>

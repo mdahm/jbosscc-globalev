@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Globalev example application</title>
+	<link rel="shortcut icon" href="#{request.contextPath}/resources/images/favicon.ico" />
+
+	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/style/richfaces.css" />
+	<link type="text/css" rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/style/devA.css" />
+
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/scripts/meyle.js" />
+
+	<ui:insert name="head" />
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGroup>
+			<h:messages layout="list" globalOnly="true" />
+		</h:panelGroup>
+
+		<h:dataTable value="#{messageController.messages}" var="message">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="From" />
+				</f:facet>
+
+				<h:outputText value="#{message.from}">
+					<f:convertDateTime pattern="dd.MM.yyyy hh:mm" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+
+				<h:outputText value="#{message.identifier}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Text" />
+				</f:facet>
+
+				<h:outputText value="#{message.text}" />
+			</h:column>
+		</h:dataTable>
+
+		<h:panelGrid style="width: 230px; text-align: left; margin-right: 0px;" columns="1">
+			<h:outputLabel value="Message: " />
+			<h:inputTextarea id="message" columns="100" rows="5" value="#{messageController.text}" style="width: 500px;" />
+			<h:message style="color: red;" for="message" showDetail="true" showSummary="false" />
+
+			<h:panelGroup>
+				<h:commandButton value="OK" action="#{messageController.send}" />
+
+				<h:commandButton immediate="true" value="Cancel"/>
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
